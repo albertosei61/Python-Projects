@@ -1,5 +1,4 @@
 test error handling
 Create function
-Make sure write_todos function works
 Make meal
 Make lunch
