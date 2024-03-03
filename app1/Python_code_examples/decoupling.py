@@ -8,7 +8,7 @@ def convert(feet_int, inches_int):
 
     meters = feet * 0.3048 + inches * 0.0254
     #return f"{feet} feet and {inches} inches is equal to {meters} meters."
-    return meters
+    return round(meters, 3)
 
 #Commented out to only run convert function
 

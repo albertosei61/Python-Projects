@@ -1,3 +1,5 @@
 {
-    "accessibility.alert.error": false
+    "accessibility.signals.lineHasError": {
+        "announcement": "off"
+    }
 }
