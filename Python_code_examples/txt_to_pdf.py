@@ -1,32 +1,30 @@
 from fpdf import FPDF
-import os
+import glob
+from pathlib import Path
 
 # Create instance of FPDF class
-pdf = FPDF()
+filepaths = glob.glob("files/*.txt")
+pdf = FPDF(orientation="P", unit="mm", format="A4")
 
-# Add a page
-
-
-# Specify the directory you want to search
-directory = 'animal_txt_files'
-
-# Get the list of txt files
-files = [f for f in os.listdir(directory) if f.endswith('.txt')]
-
-# Iterate over the list of files
-for i, file in enumerate(files):
-    # Split the file name to get the title
-    title = os.path.splitext(file)[0]
-    
-    # Capitalize the title
-    title = title.capitalize()
+for filepath in filepaths:
 
     pdf.add_page()
-
-    pdf.set_font("Arial", size = 15)
     
-    # Add the title to the PDF
-    pdf.cell(200, 10, txt = title, ln = i+1, align = 'L')
+    filename = Path(filepath).stem
+    name = filename.title()
+
+
+    
+
+    pdf.set_font(family="Times", size=16, style="B")
+    pdf.cell(w=50, h=8, txt=name, ln=1)
+    with open(filepath, "r") as file:
+        content = file.read()
+
+    pdf.set_font(family="Times", size=12)
+    pdf.multi_cell(w=0, h=6, txt=content)
+
+
 
 # Save the pdf with name .pdf
-pdf.output("titles.pdf")
+pdf.output("output.pdf")
