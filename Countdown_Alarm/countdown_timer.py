@@ -15,23 +15,14 @@ print(timer_seconds)
 #do a time.sleep(1) 1 second representing the seconds between.
 #when the length of the delimeter is == 0:
     #print("Countdown over")
-
 while timer_seconds > 0:
     timer_seconds -= 1
     time.sleep(1)
     print(timer_seconds)
     if timer_seconds == 0:
-        #
-        play_sound = winsound.PlaySound("piano_alarm", winsound.SND_ALIAS)
+        play_sound = winsound.PlaySound("piano_alarm", winsound.SND_ASYNC + winsound.SND_LOOP)
+        input("Enter any input to stop sound")
+        winsound.PlaySound(None, 0)
         print("Count Down Over")
 
-#print(timer_seconds(time.timer_seconds(h)))
-
-
-   
-    #res -= 1
-#Start the timer per user input
-#When timer reaches 0:d
-    #ring timer
-    #print timer went off
     
